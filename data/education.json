@@ -1,0 +1,22 @@
+{
+  "entries": [
+    {
+      "institution": "New York University",
+      "degree": "Master of Science",
+      "field": "Computer Engineering",
+      "end": "May 2026",
+      "location": "New York, NY",
+      "details": [
+        "Relevant coursework: Distributed Systems, High-Performance Machine Learning, Design & Analysis of Algorithms",
+        "Merit Scholarship for graduate tuition"
+      ]
+    },
+    {
+      "institution": "Vishwakarma Institute of Information Technology",
+      "degree": "Bachelor of Engineering",
+      "field": "Electronics & Telecommunications Engineering",
+      "end": "May 2021",
+      "location": "Pune, India"
+    }
+  ]
+}

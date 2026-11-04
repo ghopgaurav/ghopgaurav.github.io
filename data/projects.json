@@ -1,0 +1,243 @@
+{
+  "projects": [
+    {
+      "name": "Dispatch Engine Simulator",
+      "category": "Backend systems",
+      "description": "A real-time dispatch engine for delivery-style matching. It finds nearby drivers with Redis GEO lookups and a PostGIS fallback, scores and assigns them, retries failed dispatches through state machines, and publishes every state change to Kafka.",
+      "highlights": [
+        "5K-request bursty load test: about 180ms p95 dispatch latency and 92% dispatch success.",
+        "Shipped as freelance work for a food catering business: handles 300 orders/day and cut delivery-status inquiries by 90%.",
+        "Driver and order transitions are validated in the domain layer, so an invalid transition never reaches persistence."
+      ],
+      "technologies": [
+        "Java",
+        "Spring Boot",
+        "PostgreSQL",
+        "PostGIS",
+        "Redis",
+        "Kafka"
+      ],
+      "links": {
+        "source": "https://github.com/ghopgaurav/dispatch-engine-simulator"
+      },
+      "image": "assets/images/projects/dispatch-engine-simulator.svg",
+      "featured": true,
+      "hero": {
+        "src": "assets/images/projects/dispatch-engine-simulator-hero.jpg",
+        "alt": "Dispatch Engine Simulator — Concept render",
+        "caption": "Concept render"
+      }
+    },
+    {
+      "name": "TinyLSM",
+      "category": "Storage engines",
+      "description": "An LSM-tree key/value store in C++17 with a memtable, write-ahead log, SSTables with bloom filters and sparse indexes, and background leveled compaction. It is small enough to read in one sitting.",
+      "highlights": [
+        "Demo writes 200k keys in 1,553 ms and reads back 50,000 of 50,000 random keys.",
+        "Crash recovery replays the WAL and scans SSTables on reopen, recovering all 50,000 sampled keys.",
+        "Background thread merges L0 into L1 and cascades levels as they exceed their byte budget."
+      ],
+      "technologies": [
+        "C++17",
+        "LSM-tree",
+        "Bloom filters",
+        "WAL",
+        "SSTables",
+        "CMake"
+      ],
+      "links": {
+        "source": "https://github.com/ghopgaurav/tiny_LSM"
+      },
+      "image": "assets/images/projects/tiny-lsm.svg",
+      "featured": true,
+      "hero": {
+        "src": "assets/images/projects/tiny-lsm-hero.jpg",
+        "alt": "TinyLSM — Concept render",
+        "caption": "Concept render"
+      }
+    },
+    {
+      "name": "University Advisor Chatbot",
+      "category": "AI agents",
+      "description": "An agentic chatbot that gives international students source-cited university recommendations. It orchestrates Claude Sonnet through a tool-calling loop across 5 custom tools on a FastAPI backend, with a Next.js chat UI.",
+      "highlights": [
+        "Sold and integrated into an Indian study-abroad consultancy's web app serving 500+ students weekly.",
+        "Tool-calling loop across 5 custom tools, with every recommendation citing its sources."
+      ],
+      "technologies": [
+        "Python",
+        "FastAPI",
+        "Next.js",
+        "AWS Bedrock",
+        "Claude Sonnet"
+      ],
+      "links": {
+        "source": "https://github.com/ghopgaurav/campusAdvisor"
+      },
+      "image": "assets/images/projects/campus-advisor.svg",
+      "featured": true,
+      "hero": {
+        "src": "assets/images/projects/campus-advisor-hero.jpg",
+        "alt": "University Advisor Chatbot — Concept render",
+        "caption": "Concept render"
+      }
+    },
+    {
+      "name": "locksmith",
+      "category": "Developer tools",
+      "description": "A migration linter that predicts which PostgreSQL lock a DDL statement takes, whether it blocks reads or writes on the target server version, and roughly how long it holds the lock on a table of a given size.",
+      "highlights": [
+        "Classifies statements into 18 operation kinds against the lock conflict matrix for PG 10, 11 and 12+.",
+        "Demo: a 400M-row table on PG 10 shows a 50.0 min write block, versus 5 ms on PG 16.",
+        "Suggests safe rewrites and treats unrecognised statements as worst case."
+      ],
+      "technologies": [
+        "TypeScript",
+        "PostgreSQL",
+        "Node.js",
+        "SQL parsing",
+        "GitHub Actions"
+      ],
+      "links": {
+        "source": "https://github.com/ghopgaurav/locksmith"
+      },
+      "image": "assets/images/projects/locksmith.svg",
+      "hero": {
+        "src": "assets/images/projects/locksmith-hero.jpg",
+        "alt": "locksmith — Concept render",
+        "caption": "Concept render"
+      }
+    },
+    {
+      "name": "sysprobe",
+      "category": "Observability",
+      "description": "An eBPF profiler for Linux that records per-process syscall, run-queue and TCP connect latency. It exports Prometheus histograms and a top-style terminal view, with record and replay for offline analysis.",
+      "highlights": [
+        "Kernel-side per-CPU log2 histograms, with every dropped sample counted and exported.",
+        "Verified end to end on two kernels: Linux 7.0.14-linuxkit (aarch64) and Linux 7.0.0-1017-azure (x86_64).",
+        "Replay runs the same aggregation and exporter offline, without privileges."
+      ],
+      "technologies": [
+        "Go",
+        "C",
+        "eBPF",
+        "Prometheus",
+        "Linux",
+        "GitHub Actions"
+      ],
+      "links": {
+        "source": "https://github.com/ghopgaurav/sysprobe"
+      },
+      "image": "assets/images/projects/sysprobe.svg",
+      "hero": {
+        "src": "assets/images/projects/sysprobe-hero.jpg",
+        "alt": "sysprobe — Concept render",
+        "caption": "Concept render"
+      }
+    },
+    {
+      "name": "gridboard",
+      "category": "Real-time systems",
+      "description": "A backpressure-aware telemetry buffer for grid dispatch consoles. Under overload it downsamples visibly, always keeps the newest sample, and marks panels STALE instead of showing old data as live.",
+      "highlights": [
+        "Under 10x overload the bounded buffer detected 4/4 injected faults; an unbounded queue detected 0/4 with 18,001 samples backed up.",
+        "Seeded fault simulator and measurement harness; 16 tests."
+      ],
+      "technologies": [
+        "TypeScript",
+        "Node.js",
+        "Backpressure",
+        "Simulation",
+        "GitHub Pages"
+      ],
+      "links": {
+        "source": "https://github.com/ghopgaurav/gridboard",
+        "demo": "https://ghopgaurav.github.io/gridboard/"
+      },
+      "image": "assets/images/projects/gridboard.svg",
+      "hero": {
+        "src": "assets/images/projects/gridboard-hero.jpg",
+        "alt": "gridboard — Concept render",
+        "caption": "Concept render"
+      }
+    },
+    {
+      "name": "consentgraph",
+      "category": "Data systems",
+      "description": "Identity resolution where per-purpose consent gates the graph join itself. Match quality is measured as precision against planted ground truth, plus a household-confusion count.",
+      "highlights": [
+        "Marketing purposes hold precision 1.0000 with 0 household confusions on 1,432 records and 472 real people.",
+        "Purpose-scoped traversal uses a recursive CTE over SQLite; consent is an append-only ledger."
+      ],
+      "technologies": [
+        "TypeScript",
+        "SQLite",
+        "Recursive CTEs",
+        "Graph modelling",
+        "GitHub Pages"
+      ],
+      "links": {
+        "source": "https://github.com/ghopgaurav/consentgraph",
+        "demo": "https://ghopgaurav.github.io/consentgraph/"
+      },
+      "image": "assets/images/projects/consentgraph.svg",
+      "hero": {
+        "src": "assets/images/projects/consentgraph-hero.jpg",
+        "alt": "consentgraph — Concept render",
+        "caption": "Concept render"
+      }
+    },
+    {
+      "name": "schemadrift",
+      "category": "Developer tools",
+      "description": "A GraphQL breaking-change gate that downgrades severity using real field-usage telemetry. It names the client that still calls a removed field and posts a Markdown report suitable for a pull request.",
+      "highlights": [
+        "Only removals of deprecated fields with zero callers in the window become SAFE; every downgrade is recorded with its justification.",
+        "Dependency-free SDL parser and structural diff."
+      ],
+      "technologies": [
+        "TypeScript",
+        "GraphQL",
+        "SDL parsing",
+        "GitHub Actions",
+        "GitHub Pages"
+      ],
+      "links": {
+        "source": "https://github.com/ghopgaurav/schemadrift",
+        "demo": "https://ghopgaurav.github.io/schemadrift/"
+      },
+      "image": "assets/images/projects/schemadrift.svg",
+      "hero": {
+        "src": "assets/images/projects/schemadrift-hero.jpg",
+        "alt": "schemadrift — Concept render",
+        "caption": "Concept render"
+      }
+    },
+    {
+      "name": "dmarcwatch",
+      "category": "Observability",
+      "description": "Deliverability monitoring from DMARC aggregate reports. It parses RUA XML from five provider dialects, separates mail that never arrived from mail that arrived and was ignored, and flags unauthorised senders.",
+      "highlights": [
+        "On a seeded corpus of 520,302 messages it found the planted break day, 2026-03-10, with DMARC pass rate falling from 100.0% to 15.0%.",
+        "Names the root cause of alignment failures instead of a bare DMARC fail."
+      ],
+      "technologies": [
+        "TypeScript",
+        "XML parsing",
+        "Statistics",
+        "DNS",
+        "GitHub Pages"
+      ],
+      "links": {
+        "source": "https://github.com/ghopgaurav/dmarcwatch",
+        "demo": "https://ghopgaurav.github.io/dmarcwatch/"
+      },
+      "image": "assets/images/projects/dmarcwatch.svg",
+      "hero": {
+        "src": "assets/images/projects/dmarcwatch-hero.jpg",
+        "alt": "dmarcwatch — Concept render",
+        "caption": "Concept render"
+      }
+    }
+  ]
+}

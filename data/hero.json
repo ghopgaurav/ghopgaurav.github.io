@@ -1,0 +1,50 @@
+{
+  "name": "Gaurav Ghop",
+  "title": "Backend Software Engineer, Distributed Systems & AI Agents",
+  "summary": "I build backend systems that hold up in production: tool-calling LLM agents with evals and monitoring, event-driven services on Kafka and AWS, and Postgres-backed data layers. I'm a founding engineer at OurFreedom.ai and hold an MS in Computer Engineering from NYU.",
+  "location": "New York, United States",
+  "photo": {
+    "src": "assets/images/gaurav-ghop.jpg",
+    "alt": "Portrait of Gaurav Ghop"
+  },
+  "readouts": [
+    {
+      "value": "1,000",
+      "label": "agent requests a day at OurFreedom.ai"
+    },
+    {
+      "value": "16% to <5%",
+      "label": "hallucination rate cut at OurFreedom.ai"
+    },
+    {
+      "value": "40M+",
+      "label": "part records reconciled at eQ Technologic"
+    },
+    {
+      "value": "85%",
+      "label": "fewer peak DB connections at Duende"
+    }
+  ],
+  "ctas": [
+    {
+      "label": "View projects",
+      "href": "#projects",
+      "kind": "primary"
+    },
+    {
+      "label": "Resume",
+      "href": "assets/files/gaurav-ghop-resume.pdf",
+      "kind": "resume"
+    },
+    {
+      "label": "Get in touch",
+      "href": "#contact",
+      "kind": "secondary"
+    }
+  ],
+  "social": {
+    "github": "https://github.com/ghopgaurav",
+    "email": "gauravghopwork@gmail.com",
+    "phone": "+1 929-628-4065"
+  }
+}

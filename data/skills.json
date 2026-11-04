@@ -1,0 +1,72 @@
+{
+  "groups": [
+    {
+      "name": "Languages",
+      "items": [
+        "Java",
+        "Python",
+        "TypeScript",
+        "JavaScript",
+        "C++",
+        "SQL"
+      ]
+    },
+    {
+      "name": "Backend & APIs",
+      "items": [
+        "Spring Boot",
+        "Node.js",
+        "FastAPI",
+        "Next.js",
+        "REST",
+        "Webhooks",
+        "Microservices",
+        "OAuth",
+        "JUnit",
+        "React Native"
+      ]
+    },
+    {
+      "name": "Databases & Storage",
+      "items": [
+        "PostgreSQL",
+        "PgBouncer",
+        "PostGIS",
+        "Redis",
+        "Cassandra",
+        "LSM-trees",
+        "Bloom filters",
+        "InfluxDB",
+        "MongoDB"
+      ]
+    },
+    {
+      "name": "Cloud & Infrastructure",
+      "items": [
+        "AWS (SQS, S3, EC2)",
+        "Docker",
+        "Kubernetes",
+        "Kafka",
+        "Flink",
+        "GitHub Actions",
+        "CI/CD",
+        "Grafana",
+        "Sentry"
+      ]
+    },
+    {
+      "name": "AI & LLM Systems",
+      "items": [
+        "Agent orchestration",
+        "RAG",
+        "LLM guardrails",
+        "LangGraph",
+        "LangChain",
+        "Langfuse",
+        "LoRA",
+        "MLX",
+        "Ollama"
+      ]
+    }
+  ]
+}

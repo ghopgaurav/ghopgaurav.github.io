@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360">
+<title>PN-08 schemadrift severity gate schematic</title>
+<desc>Old and new SDL are parsed and structurally diffed into base-severity changes. Usage records are reduced to a 30-day rolling window and applied through a narrow downgrade rule, producing a PR report and a worst-severity verdict.</desc>
+<defs>
+<style>.t{font-family:"IBM Plex Mono, SFMono-Regular, Consolas, monospace";font-size:9px;letter-spacing:.06em;fill:#EAF3FB}.h{font-size:10px}.s{opacity:.7}.a{fill:#9FDBFF}</style>
+<pattern id="minor" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M16 0H0V16" fill="none" stroke="#EAF3FB" stroke-opacity=".05" stroke-width="1"/></pattern>
+<pattern id="major" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M80 0H0V80" fill="none" stroke="#EAF3FB" stroke-opacity=".09" stroke-width="1"/></pattern>
+<marker id="ar" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L6 3L0 6z" fill="#EAF3FB" fill-opacity=".7"/></marker>
+<marker id="aa" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L6 3L0 6z" fill="#9FDBFF"/></marker>
+</defs>
+<rect width="640" height="360" fill="#0D3B66"/>
+<rect width="640" height="360" fill="url(#minor)"/>
+<rect width="640" height="360" fill="url(#major)"/>
+<rect x="0" y="0" width="640" height="28" fill="#EAF3FB" fill-opacity=".06"/>
+<line x1="0" y1="28" x2="640" y2="28" stroke="#EAF3FB" stroke-opacity=".4" stroke-width="1"/>
+<text class="t h" x="16" y="18">PN-08 · SCHEMADRIFT · SEVERITY GATE WITH USAGE EVIDENCE</text>
+
+<g fill="none" stroke="#EAF3FB" stroke-opacity=".6" stroke-width="1">
+<polyline points="124,88 144,88 144,120 164,120" marker-end="url(#ar)"/>
+<polyline points="124,168 144,168 144,152 164,152" marker-end="url(#ar)"/>
+<line x1="276" y1="136" x2="312" y2="136" marker-end="url(#ar)"/>
+<line x1="424" y1="136" x2="460" y2="136" marker-end="url(#ar)"/>
+<line x1="124" y1="266" x2="164" y2="266" marker-end="url(#ar)"/>
+<line x1="520" y1="172" x2="520" y2="212" marker-end="url(#ar)"/>
+<line x1="520" y1="244" x2="520" y2="280" marker-end="url(#ar)"/>
+</g>
+<polyline points="276,266 440,266 440,160 460,160" fill="none" stroke="#9FDBFF" stroke-width="1" marker-end="url(#aa)"/>
+
+<rect x="16" y="70" width="108" height="36" fill="#0D3B66" stroke="#EAF3FB" stroke-opacity=".6" stroke-width="1"/>
+<text class="t" x="70" y="92" text-anchor="middle">OLD SDL</text>
+<rect x="16" y="150" width="108" height="36" fill="#0D3B66" stroke="#EAF3FB" stroke-opacity=".6" stroke-width="1"/>
+<text class="t" x="70" y="172" text-anchor="middle">NEW SDL</text>
+
+<rect x="164" y="100" width="112" height="72" fill="#0D3B66" stroke="#EAF3FB" stroke-opacity=".6" stroke-width="1"/>
+<text class="t h" x="220" y="132" text-anchor="middle">PARSE SDL</text>
+<text class="t s" x="220" y="148" text-anchor="middle">SDL SUBSET</text>
+
+<rect x="312" y="100" width="112" height="72" fill="#0D3B66" stroke="#EAF3FB" stroke-opacity=".6" stroke-width="1"/>
+<text class="t h" x="368" y="132" text-anchor="middle">STRUCTURAL DIFF</text>
+<text class="t s" x="368" y="148" text-anchor="middle">BASE SEVERITY</text>
+
+<rect x="460" y="100" width="164" height="72" fill="#0D3B66" stroke="#9FDBFF" stroke-width="1"/>
+<text class="t h a" x="542" y="132" text-anchor="middle">APPLY USAGE</text>
+<text class="t s" x="542" y="148" text-anchor="middle">NARROW DOWNGRADE</text>
+
+<rect x="16" y="248" width="108" height="36" fill="#0D3B66" stroke="#EAF3FB" stroke-opacity=".6" stroke-width="1"/>
+<text class="t" x="70" y="270" text-anchor="middle">USAGE RECORDS</text>
+<rect x="164" y="248" width="112" height="36" fill="#0D3B66" stroke="#EAF3FB" stroke-opacity=".6" stroke-width="1"/>
+<text class="t" x="220" y="270" text-anchor="middle">ROLLING WINDOW</text>
+
+<text class="t s" x="16" y="312">NARROW RULE</text>
+<text class="t s" x="16" y="326">DEP + 0 CALLS = SAFE</text>
+<rect x="164" y="300" width="112" height="36" fill="#0D3B66" stroke="#9FDBFF" stroke-width="1"/>
+<text class="t s" x="220" y="313" text-anchor="middle">WINDOW</text>
+<text class="t a" x="220" y="329" text-anchor="middle" style="font-size:11px">30 DAYS</text>
+
+<rect x="460" y="212" width="164" height="32" fill="#0D3B66" stroke="#EAF3FB" stroke-opacity=".6" stroke-width="1"/>
+<text class="t" x="542" y="232" text-anchor="middle">PR REPORT (MARKDOWN)</text>
+<rect x="460" y="280" width="164" height="32" fill="#0D3B66" stroke="#EAF3FB" stroke-opacity=".6" stroke-width="1"/>
+<text class="t" x="542" y="300" text-anchor="middle">WORST-SEVERITY VERDICT</text>
+</svg>

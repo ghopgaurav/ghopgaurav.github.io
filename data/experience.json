@@ -1,0 +1,95 @@
+{
+  "roles": [
+    {
+      "company": "OurFreedom.ai",
+      "logo": "assets/images/logos/ourfreedom-ai.png",
+      "title": "Software Engineer, Founding Team",
+      "start": "Jun 2026",
+      "end": "Present",
+      "location": "New York, NY",
+      "description": "Founding engineer owning the agent layer and the AWS production backend, shipping GTM MVP features alongside the founders.",
+      "highlights": [
+        "Led development of Carla, a LangGraph tool-calling agent across 6 tools, with Pydantic-validated tool outputs, retry and fallback handling, and a human review queue for flagged outputs, serving about 1,000 requests a day.",
+        "Designed the agent's eval pipeline: a 150-case gold set run nightly with Langfuse tracing, root-causing regressions to specific tool calls or prompts. Hallucinations fell from 16% to under 5% and tool-selection accuracy rose to 91%.",
+        "Owned the AWS production backend, handling resource management, uptime and rollbacks, and shipped GTM MVP features with the founders.",
+        "Added Prometheus and Grafana monitoring for p95 latency, tool failure rate and cost per request, with canary rollouts for every change."
+      ],
+      "technologies": [
+        "LangGraph",
+        "Pydantic",
+        "Langfuse",
+        "AWS",
+        "Prometheus",
+        "Grafana"
+      ]
+    },
+    {
+      "company": "Tiny Archives",
+      "logo": "assets/images/logos/tiny-archives.svg",
+      "title": "AI Software Engineer, Summer Intern",
+      "start": "Jun 2025",
+      "end": "Aug 2025",
+      "location": "New York, NY",
+      "description": "Built the ingestion and retrieval backbone for answering questions over archival collections.",
+      "highlights": [
+        "Shipped a Python ingestion pipeline that normalized archival exports (EAD/XML, CSV, PDF) into a unified Pydantic schema, replacing 3 parsers.",
+        "Built a RAG pipeline with LangChain and pgvector that grounded answers in 40,000 indexed documents.",
+        "Cut the hallucination rate from 18% to 4%, measured by a weekly eval set of 500 queries."
+      ],
+      "technologies": [
+        "Python",
+        "Pydantic",
+        "LangChain",
+        "pgvector",
+        "RAG"
+      ]
+    },
+    {
+      "company": "Duende Ingenious",
+      "logo": "assets/images/logos/duende-ingenious.svg",
+      "title": "Founding Engineer",
+      "start": "Jul 2023",
+      "end": "Aug 2024",
+      "location": "Pune, India",
+      "description": "Early engineer responsible for backend reliability, order processing and release automation.",
+      "highlights": [
+        "Introduced PgBouncer connection pooling with PostgreSQL, reducing peak connection count by 85% and eliminating connection-exhaustion incidents.",
+        "Built an asynchronous order processing queue in Node.js on AWS SQS with exponential backoff retries and a dead letter queue, cutting silent order failures from 0.5% to 0.3% of daily volume.",
+        "Containerized backend services with Docker and automated CI/CD through GitHub Actions with integration tests, cutting the release cycle from 2 weeks to 1."
+      ],
+      "technologies": [
+        "PostgreSQL",
+        "PgBouncer",
+        "Node.js",
+        "AWS SQS",
+        "Docker",
+        "GitHub Actions"
+      ]
+    },
+    {
+      "company": "eQ Technologic",
+      "logo": "assets/images/logos/eq-technologic.svg",
+      "title": "Software Engineer I",
+      "start": "Aug 2021",
+      "end": "Jun 2023",
+      "location": "Pune, India",
+      "description": "Backend engineer on enterprise integration products connecting PLM, ERP and SAP systems for customers including US defense deployments.",
+      "highlights": [
+        "Built idempotent Kafka consumers with automated reconciliation across 40M+ part records, detecting and resolving 1,200+ revision mismatches per month between PLM and ERP systems.",
+        "Developed Java Spring Boot microservices for a low-code API Gateway, adding retry logic, circuit breakers and JUnit integration tests to REST, OData and SOAP adapters. This reduced failed SAP and Teamcenter sync jobs by 40%.",
+        "Built a Kubernetes operator that provisions multi-tenant connector deployments from CRDs, eliminating 200+ hand-maintained manifests.",
+        "Integrated SAML SSO, Kerberos, LDAP, OAuth and X.509 certificate authentication against customer identity providers for US defense deployments."
+      ],
+      "technologies": [
+        "Java",
+        "Spring Boot",
+        "Kafka",
+        "JUnit",
+        "Kubernetes",
+        "OAuth",
+        "SAML SSO",
+        "LDAP"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360">
+<title>PN-04 LOCKSMITH migration lock estimator schematic</title>
+<desc>Pipeline: migration.sql, split statements, classify, estimate against lock matrix and table stats, then risk rating with SAFE, CAUTION and DANGER levels.</desc>
+<style>text{font-family:"IBM Plex Mono, SFMono-Regular, Consolas, monospace";font-size:9px;letter-spacing:0.06em;fill:#EAF3FB}.s{opacity:.7}.a{fill:#9FDBFF}.k{font-size:11px}</style>
+<defs>
+<pattern id="g1" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M16 0H0V16" fill="none" stroke="#EAF3FB" stroke-opacity="0.05" stroke-width="1"/></pattern>
+<pattern id="g2" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M80 0H0V80" fill="none" stroke="#EAF3FB" stroke-opacity="0.09" stroke-width="1"/></pattern>
+<marker id="ah" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#EAF3FB"/></marker>
+<marker id="ahA" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#9FDBFF"/></marker>
+</defs>
+<rect x="0" y="0" width="640" height="360" fill="#0D3B66"/>
+<rect x="0" y="0" width="640" height="360" fill="url(#g1)"/>
+<rect x="0" y="0" width="640" height="360" fill="url(#g2)"/>
+<rect x="16" y="16" width="608" height="26" fill="none" stroke="#EAF3FB" stroke-opacity="0.5" stroke-width="1"/>
+<text x="28" y="33">PN-04 · LOCKSMITH · MIGRATION LOCK ESTIMATOR</text>
+
+<text class="s" x="32" y="140">PARSE</text>
+<text class="s" x="32" y="108">UNRECOGNISED STATEMENT = WORST CASE</text>
+
+<rect x="32" y="150" width="96" height="52" fill="#0D3B66" stroke="#EAF3FB" stroke-opacity="0.7" stroke-width="1"/>
+<text x="40" y="170">MIGRATION</text>
+<text class="s" x="40" y="186">.sql file</text>
+
+<rect x="148" y="150" width="96" height="52" fill="#0D3B66" stroke="#EAF3FB" stroke-opacity="0.7" stroke-width="1"/>
+<text x="156" y="170">SPLIT</text>
+<text class="s" x="156" y="186">strip comments</text>
+
+<rect x="264" y="150" width="96" height="52" fill="#0D3B66" stroke="#EAF3FB" stroke-opacity="0.7" stroke-width="1"/>
+<text x="272" y="170">CLASSIFY</text>
+<text class="s" x="272" y="186">18 op kinds</text>
+
+<rect x="380" y="150" width="96" height="52" fill="#0D3B66" stroke="#9FDBFF" stroke-width="1"/>
+<text x="388" y="170">ESTIMATE</text>
+<text class="s" x="388" y="186">per version</text>
+
+<rect x="496" y="150" width="112" height="52" fill="#0D3B66" stroke="#9FDBFF" stroke-width="1"/>
+<text x="504" y="170" class="a">RISK</text>
+<text class="s" x="504" y="186">severity</text>
+
+<rect x="380" y="66" width="96" height="50" fill="#0D3B66" stroke="#EAF3FB" stroke-opacity="0.7" stroke-width="1"/>
+<text x="388" y="86">LOCK MATRIX</text>
+<text class="s" x="388" y="102">PG 10/11/12+</text>
+
+<rect x="380" y="262" width="96" height="50" fill="#0D3B66" stroke="#EAF3FB" stroke-opacity="0.7" stroke-width="1"/>
+<text x="388" y="282">TABLE STATS</text>
+<text class="s" x="388" y="298">rows · indexes</text>
+
+<rect x="496" y="262" width="112" height="50" fill="#0D3B66" stroke="#EAF3FB" stroke-opacity="0.5" stroke-width="1"/>
+<text x="504" y="276">SAFE</text>
+<text x="504" y="288">CAUTION</text>
+<text x="504" y="300">DANGER</text>
+
+<line x1="128" y1="176" x2="148" y2="176" stroke="#EAF3FB" stroke-opacity="0.7" stroke-width="1" marker-end="url(#ah)"/>
+<line x1="244" y1="176" x2="264" y2="176" stroke="#EAF3FB" stroke-opacity="0.7" stroke-width="1" marker-end="url(#ah)"/>
+<line x1="360" y1="176" x2="380" y2="176" stroke="#9FDBFF" stroke-width="1" marker-end="url(#ahA)"/>
+<line x1="476" y1="176" x2="496" y2="176" stroke="#9FDBFF" stroke-width="1" marker-end="url(#ahA)"/>
+<line x1="428" y1="116" x2="428" y2="150" stroke="#EAF3FB" stroke-opacity="0.7" stroke-width="1" marker-end="url(#ah)"/>
+<line x1="428" y1="262" x2="428" y2="202" stroke="#EAF3FB" stroke-opacity="0.7" stroke-width="1" marker-end="url(#ah)"/>
+<line x1="552" y1="202" x2="552" y2="262" stroke="#EAF3FB" stroke-opacity="0.5" stroke-width="1"/>
+
+<rect x="32" y="262" width="120" height="50" fill="#0D3B66" stroke="#9FDBFF" stroke-width="1"/>
+<text class="a k" x="44" y="289">18</text>
+<text class="s" x="44" y="304">OPERATION KINDS</text>
+
+<rect x="164" y="262" width="120" height="50" fill="#0D3B66" stroke="#9FDBFF" stroke-width="1"/>
+<text class="a k" x="176" y="289">41</text>
+<text class="s" x="176" y="304">TESTS</text>
+</svg>

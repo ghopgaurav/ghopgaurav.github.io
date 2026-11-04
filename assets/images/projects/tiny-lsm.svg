@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360">
+<title>PN-02 TinyLSM schematic</title>
+<desc>Write path (PUT to WAL, memtable, SSTable in L0), background compaction L0 to L1 to Li, read path (memtable, L0 bloom check, L1+ binary search) and three readouts.</desc>
+<defs>
+<style>
+.t{font-family:"IBM Plex Mono,SFMono-Regular,Consolas,monospace";font-size:10px;letter-spacing:.06em;fill:#EAF3FB}
+.s{font-size:9px;opacity:.7}
+.a{fill:#9FDBFF}
+.n{font-size:11px;fill:#9FDBFF}
+.b{fill:#0D3B66;stroke:#EAF3FB;stroke-opacity:.6;stroke-width:1}
+.k{fill:#0D3B66;stroke:#9FDBFF;stroke-width:1}
+.l{stroke:#EAF3FB;stroke-opacity:.7;stroke-width:1}
+.p{stroke:#9FDBFF;stroke-width:1}
+</style>
+<pattern id="minor" width="16" height="16" patternUnits="userSpaceOnUse">
+<path d="M16 0H0V16" fill="none" stroke="#EAF3FB" stroke-opacity=".05" stroke-width="1"/>
+</pattern>
+<pattern id="major" width="80" height="80" patternUnits="userSpaceOnUse">
+<path d="M80 0H0V80" fill="none" stroke="#EAF3FB" stroke-opacity=".09" stroke-width="1"/>
+</pattern>
+<marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+<path d="M0 0L8 4L0 8z" fill="#EAF3FB" fill-opacity=".8"/>
+</marker>
+<marker id="ahA" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+<path d="M0 0L8 4L0 8z" fill="#9FDBFF"/>
+</marker>
+</defs>
+<rect x="0" y="0" width="640" height="360" fill="#0D3B66"/>
+<rect x="0" y="0" width="640" height="360" fill="url(#minor)"/>
+<rect x="0" y="0" width="640" height="360" fill="url(#major)"/>
+
+<rect x="16" y="16" width="608" height="24" fill="none" class="l"/>
+<text x="28" y="32" class="t">PN-02 · TINYLSM · LSM-TREE KEY/VALUE STORE</text>
+
+<text x="32" y="70" class="t s">WRITE PATH</text>
+<line x1="128" y1="100" x2="166" y2="100" class="p" marker-end="url(#ahA)"/>
+<line x1="278" y1="100" x2="316" y2="100" class="p" marker-end="url(#ahA)"/>
+<line x1="428" y1="100" x2="462" y2="100" class="p" marker-end="url(#ahA)"/>
+<line x1="536" y1="120" x2="536" y2="178" class="l" marker-end="url(#ah)"/>
+
+<rect x="32" y="80" width="96" height="40" class="b"/>
+<text x="80" y="104" class="t" text-anchor="middle">PUT(k,v)</text>
+<rect x="168" y="80" width="110" height="40" class="k"/>
+<text x="223" y="97" class="t" text-anchor="middle">WAL</text>
+<text x="223" y="112" class="t s" text-anchor="middle">APPEND+FSYNC</text>
+<rect x="318" y="80" width="110" height="40" class="b"/>
+<text x="373" y="104" class="t" text-anchor="middle">MEMTABLE</text>
+<text x="445" y="94" class="t s" text-anchor="middle">FULL</text>
+<rect x="464" y="80" width="144" height="40" class="b"/>
+<text x="536" y="97" class="t" text-anchor="middle">SSTABLE</text>
+<text x="536" y="112" class="t s" text-anchor="middle">FLUSH TO L0</text>
+
+<rect x="152" y="158" width="456" height="70" fill="none" class="l" stroke-dasharray="4 3"/>
+<text x="160" y="170" class="t s">BACKGROUND COMPACTOR</text>
+<rect x="168" y="180" width="110" height="36" class="b"/>
+<text x="223" y="202" class="t" text-anchor="middle">Li → Li+1</text>
+<rect x="318" y="180" width="110" height="36" class="b"/>
+<text x="373" y="202" class="t" text-anchor="middle">L1</text>
+<rect x="464" y="180" width="144" height="36" class="b"/>
+<text x="536" y="202" class="t" text-anchor="middle">L0 → L1</text>
+<line x1="464" y1="198" x2="430" y2="198" class="l" marker-end="url(#ah)"/>
+<line x1="318" y1="198" x2="280" y2="198" class="l" marker-end="url(#ah)"/>
+<text x="160" y="222" class="t s">TOMBSTONES DROPPED AT BOTTOM</text>
+
+<text x="32" y="250" class="t s">READ PATH</text>
+<line x1="128" y1="281" x2="166" y2="281" class="l" marker-end="url(#ah)"/>
+<line x1="278" y1="281" x2="316" y2="281" class="l" marker-end="url(#ah)"/>
+<line x1="428" y1="281" x2="462" y2="281" class="l" marker-end="url(#ah)"/>
+<rect x="32" y="262" width="96" height="38" class="b"/>
+<text x="80" y="285" class="t" text-anchor="middle">GET(k)</text>
+<rect x="168" y="262" width="110" height="38" class="b"/>
+<text x="223" y="285" class="t" text-anchor="middle">MEMTABLE</text>
+<rect x="318" y="262" width="110" height="38" class="b"/>
+<text x="373" y="278" class="t" text-anchor="middle">L0 + BLOOM</text>
+<text x="373" y="292" class="t s" text-anchor="middle">SKIP ON MISS</text>
+<rect x="464" y="262" width="144" height="38" class="b"/>
+<text x="536" y="278" class="t" text-anchor="middle">L1+ BINARY</text>
+<text x="536" y="292" class="t s" text-anchor="middle">SEARCH</text>
+
+<rect x="32" y="322" width="180" height="22" class="b"/>
+<text x="122" y="337" class="t n" text-anchor="middle">200K KEYS WRITTEN</text>
+<rect x="230" y="322" width="180" height="22" class="b"/>
+<text x="320" y="337" class="t n" text-anchor="middle">1,553 MS</text>
+<rect x="428" y="322" width="180" height="22" class="b"/>
+<text x="518" y="337" class="t n" text-anchor="middle">50,000/50,000 RECOVERED</text>
+</svg>

@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" font-family="IBM Plex Mono, SFMono-Regular, Consolas, monospace" letter-spacing="0.6">
+  <title>PN-03 University Advisor Chatbot system schematic</title>
+  <desc>Next.js chat UI calls a FastAPI backend running a tool-calling loop on Claude Sonnet via AWS Bedrock, with 5 custom tools returning source-cited university recommendations.</desc>
+  <defs>
+    <pattern id="minor" width="16" height="16" patternUnits="userSpaceOnUse">
+      <path d="M16 0H0V16" fill="none" stroke="#EAF3FB" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+    <pattern id="major" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M80 0H0V80" fill="none" stroke="#EAF3FB" stroke-opacity="0.09" stroke-width="1"/>
+    </pattern>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0L10,5L0,10z" fill="#EAF3FB" fill-opacity="0.8"/>
+    </marker>
+    <marker id="key" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0L10,5L0,10z" fill="#9FDBFF"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="640" height="360" fill="#0D3B66"/>
+  <rect x="0" y="0" width="640" height="360" fill="url(#minor)"/>
+  <rect x="0" y="0" width="640" height="360" fill="url(#major)"/>
+
+  <!-- Title strip -->
+  <rect x="16" y="16" width="608" height="24" fill="none" stroke="#EAF3FB" stroke-opacity="0.5" stroke-width="1"/>
+  <line x1="16" y1="40" x2="624" y2="40" stroke="#EAF3FB" stroke-opacity="0.4" stroke-width="1"/>
+  <text x="26" y="32" font-size="10" fill="#EAF3FB">PN-03 · UNIVERSITY ADVISOR CHATBOT · SYSTEM SCHEMATIC</text>
+
+  <!-- Row 1: key path -->
+  <g stroke="#EAF3FB" stroke-opacity="0.7" stroke-width="1" fill="#0D3B66">
+    <rect x="20" y="64" width="120" height="52"/>
+    <rect x="180" y="64" width="120" height="52" stroke="#9FDBFF" stroke-opacity="0.8"/>
+    <rect x="340" y="64" width="120" height="52" stroke="#9FDBFF" stroke-opacity="0.8"/>
+    <rect x="500" y="64" width="120" height="52"/>
+  </g>
+  <g font-size="9" text-anchor="middle" fill="#EAF3FB">
+    <text x="80" y="84">NEXT.JS CHAT UI</text>
+    <text x="80" y="100" fill-opacity="0.7">STUDENT BROWSER</text>
+    <text x="240" y="84">FASTAPI BACKEND</text>
+    <text x="240" y="100" fill-opacity="0.7">TOOL ROUTING API</text>
+    <text x="400" y="84">TOOL-CALLING LOOP</text>
+    <text x="400" y="100" fill-opacity="0.7">ITERATIVE REASONING</text>
+    <text x="560" y="84">CLAUDE SONNET</text>
+    <text x="560" y="100" fill-opacity="0.7">AWS BEDROCK</text>
+  </g>
+  <g stroke="#9FDBFF" stroke-width="1" marker-end="url(#key)">
+    <line x1="140" y1="90" x2="178" y2="90"/>
+    <line x1="300" y1="90" x2="338" y2="90"/>
+    <line x1="460" y1="90" x2="498" y2="90"/>
+  </g>
+
+  <!-- Row 2: outputs and tools -->
+  <g stroke="#EAF3FB" stroke-opacity="0.7" stroke-width="1" fill="#0D3B66">
+    <rect x="180" y="168" width="120" height="52"/>
+    <rect x="340" y="168" width="120" height="52"/>
+  </g>
+  <g font-size="9" text-anchor="middle" fill="#EAF3FB">
+    <text x="240" y="188">SOURCE-CITED RECS</text>
+    <text x="240" y="204" fill-opacity="0.7">CHAT RESPONSE</text>
+    <text x="400" y="188">CUSTOM TOOLS</text>
+    <text x="400" y="204" fill-opacity="0.7">5 TOOL FUNCTIONS</text>
+  </g>
+  <g stroke="#EAF3FB" stroke-opacity="0.6" stroke-width="1" marker-end="url(#arr)">
+    <line x1="400" y1="116" x2="400" y2="166"/>
+    <line x1="240" y1="116" x2="240" y2="166"/>
+  </g>
+
+  <!-- Readouts -->
+  <g stroke="#EAF3FB" stroke-opacity="0.6" stroke-width="1" fill="#0D3B66">
+    <rect x="20" y="256" width="150" height="56"/>
+    <rect x="190" y="256" width="150" height="56"/>
+    <rect x="360" y="256" width="260" height="56"/>
+  </g>
+  <text x="34" y="284" font-size="22" fill="#9FDBFF">500+</text>
+  <text x="34" y="302" font-size="9" fill="#EAF3FB" fill-opacity="0.7">STUDENTS / WEEK</text>
+  <text x="204" y="284" font-size="22" fill="#9FDBFF">5</text>
+  <text x="204" y="302" font-size="9" fill="#EAF3FB" fill-opacity="0.7">CUSTOM TOOLS</text>
+  <text x="374" y="284" font-size="9" fill="#EAF3FB">STUDY-ABROAD CONSULTANCY</text>
+  <text x="374" y="300" font-size="9" fill="#EAF3FB" fill-opacity="0.7">WEB APP · LIVE DEPLOYMENT</text>
+</svg>

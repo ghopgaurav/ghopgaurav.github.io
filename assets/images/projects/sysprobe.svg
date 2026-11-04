@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360">
+<title>PN-05 sysprobe schematic</title>
+<desc>Blueprint schematic: BPF programs and maps in the Linux kernel feed a Go userspace probe, aggregator, Prometheus exporter, top view and JSONL fixture.</desc>
+<defs>
+<style>
+.t{font-family:"IBM Plex Mono","SFMono-Regular",Consolas,monospace;font-size:9px;letter-spacing:.06em;fill:#EAF3FB;text-transform:uppercase}
+.s{opacity:.7}
+.n{fill:#9FDBFF;font-size:14px}
+.b{fill:#0D3B66;stroke:#EAF3FB;stroke-opacity:.6;stroke-width:1}
+.w{stroke:#EAF3FB;stroke-opacity:.6;stroke-width:1;fill:none}
+</style>
+<pattern id="mi" width="16" height="16" patternUnits="userSpaceOnUse">
+<path d="M16 0H0V16" fill="none" stroke="#EAF3FB" stroke-opacity=".05" stroke-width="1"/>
+</pattern>
+<pattern id="ma" width="80" height="80" patternUnits="userSpaceOnUse">
+<path d="M80 0H0V80" fill="none" stroke="#EAF3FB" stroke-opacity=".09" stroke-width="1"/>
+</pattern>
+<marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+<path d="M0 0L8 4L0 8z" fill="#EAF3FB" fill-opacity=".8"/>
+</marker>
+<marker id="ac" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+<path d="M0 0L8 4L0 8z" fill="#9FDBFF"/>
+</marker>
+</defs>
+
+<rect x="0" y="0" width="640" height="360" fill="#0D3B66"/>
+<rect x="0" y="0" width="640" height="360" fill="url(#mi)"/>
+<rect x="0" y="0" width="640" height="360" fill="url(#ma)"/>
+
+<!-- title strip -->
+<rect x="16" y="16" width="608" height="24" class="w"/>
+<text x="28" y="32" class="t">PN-05 · SYSPROBE · eBPF SYSCALL AND SCHEDULER PROFILER</text>
+
+<!-- kernel region -->
+<rect x="16" y="56" width="236" height="256" class="w"/>
+<text x="28" y="72" class="t s">LINUX KERNEL · BPF</text>
+
+<rect x="28" y="80" width="96" height="36" class="b"/>
+<text x="76" y="94" class="t" text-anchor="middle">SYSCALL</text>
+<text x="76" y="106" class="t s" text-anchor="middle">raw_tp sys_*</text>
+<rect x="28" y="140" width="96" height="36" class="b"/>
+<text x="76" y="154" class="t" text-anchor="middle">SCHED</text>
+<text x="76" y="166" class="t s" text-anchor="middle">tp_btf sched_*</text>
+<rect x="28" y="200" width="96" height="36" class="b"/>
+<text x="76" y="214" class="t" text-anchor="middle">TCP STATE</text>
+<text x="76" y="226" class="t s" text-anchor="middle">tp_btf tcp_*</text>
+<rect x="28" y="260" width="96" height="36" class="b"/>
+<text x="76" y="274" class="t" text-anchor="middle">PROCESS</text>
+<text x="76" y="286" class="t s" text-anchor="middle">raw_tp exit</text>
+
+<rect x="148" y="80" width="88" height="36" class="b"/>
+<text x="192" y="94" class="t" text-anchor="middle">SYS_HIST</text>
+<text x="192" y="106" class="t s" text-anchor="middle">per-CPU log2</text>
+<rect x="148" y="140" width="88" height="36" class="b"/>
+<text x="192" y="154" class="t" text-anchor="middle">RUNQ_HIST</text>
+<text x="192" y="166" class="t s" text-anchor="middle">per-CPU log2</text>
+<rect x="148" y="200" width="88" height="36" class="b"/>
+<text x="192" y="214" class="t" text-anchor="middle">TCP_EVENTS</text>
+<text x="192" y="226" class="t s" text-anchor="middle">ring buffer</text>
+<rect x="148" y="260" width="88" height="36" class="b"/>
+<text x="192" y="274" class="t" text-anchor="middle">EXITED</text>
+<text x="192" y="286" class="t s" text-anchor="middle">proc_comm</text>
+
+<line x1="124" y1="98" x2="148" y2="98" class="w" marker-end="url(#ah)"/>
+<line x1="124" y1="158" x2="148" y2="158" class="w" marker-end="url(#ah)"/>
+<line x1="124" y1="218" x2="148" y2="218" class="w" marker-end="url(#ah)"/>
+<line x1="124" y1="278" x2="148" y2="278" class="w" marker-end="url(#ah)"/>
+
+<!-- map-to-probe collector bus -->
+<line x1="236" y1="98" x2="268" y2="98" class="w"/>
+<line x1="236" y1="158" x2="268" y2="158" class="w"/>
+<line x1="236" y1="218" x2="268" y2="218" class="w"/>
+<line x1="236" y1="278" x2="268" y2="278" class="w"/>
+<line x1="268" y1="98" x2="268" y2="278" class="w"/>
+<line x1="268" y1="102" x2="316" y2="102" class="w" stroke="#9FDBFF" stroke-opacity="1" marker-end="url(#ac)"/>
+
+<!-- userspace region -->
+<rect x="300" y="56" width="324" height="256" class="w"/>
+<text x="316" y="72" class="t s">USERSPACE · GO</text>
+
+<rect x="316" y="84" width="292" height="36" class="b"/>
+<text x="462" y="98" class="t" text-anchor="middle">PROBE</text>
+<text x="462" y="110" class="t s" text-anchor="middle">load · attach · snapshot 1s · GC exited</text>
+
+<rect x="316" y="140" width="292" height="36" class="b"/>
+<text x="462" y="154" class="t" text-anchor="middle">AGGREGATE</text>
+<text x="462" y="166" class="t s" text-anchor="middle">deltas, resets, sliding window, monotonic</text>
+
+<rect x="316" y="196" width="140" height="36" class="b"/>
+<text x="386" y="210" class="t" text-anchor="middle">EXPORTER</text>
+<text x="386" y="222" class="t s" text-anchor="middle">/metrics histograms</text>
+
+<rect x="472" y="196" width="136" height="36" class="b"/>
+<text x="540" y="210" class="t" text-anchor="middle">TOP VIEW</text>
+<text x="540" y="222" class="t s" text-anchor="middle">procs · tcp · detail</text>
+
+<rect x="316" y="268" width="292" height="36" class="b"/>
+<text x="462" y="282" class="t" text-anchor="middle">FIXTURE</text>
+<text x="462" y="294" class="t s" text-anchor="middle">JSONL record / replay (offline)</text>
+
+<line x1="316" y1="120" x2="316" y2="120" class="w"/>
+<line x1="462" y1="120" x2="462" y2="140" stroke="#9FDBFF" stroke-width="1" marker-end="url(#ac)"/>
+<line x1="386" y1="176" x2="386" y2="196" class="w" marker-end="url(#ah)"/>
+<line x1="540" y1="176" x2="540" y2="196" class="w" marker-end="url(#ah)"/>
+<polyline points="316,286 292,286 292,158 316,158" class="w" stroke-dasharray="4 3" marker-end="url(#ah)"/>
+
+<!-- readouts -->
+<rect x="16" y="320" width="296" height="24" class="w"/>
+<text x="28" y="336" class="t"><tspan class="n">2</tspan><tspan dx="6">KERNELS VERIFIED</tspan></text>
+<rect x="328" y="320" width="296" height="24" class="w"/>
+<text x="340" y="336" class="t"><tspan class="n">1s</tspan><tspan dx="6">SNAPSHOT INTERVAL</tspan></text>
+</svg>

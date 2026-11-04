@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360">
+<title>PN-01 Dispatch Engine Simulator schematic</title>
+<desc>Blueprint schematic: REST controllers feed a dispatch engine with a proximity scorer, a Redis GEO hot path with PostGIS fallback, a Redis sorted-set retry queue, and Kafka event publishing.</desc>
+<defs>
+<pattern id="mn" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M16 0H0V16" fill="none" stroke="#EAF3FB" stroke-opacity="0.05" stroke-width="1"/></pattern>
+<pattern id="mj" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M80 0H0V80" fill="none" stroke="#EAF3FB" stroke-opacity="0.09" stroke-width="1"/></pattern>
+<marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8z" fill="#9FDBFF"/></marker>
+<marker id="am" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8z" fill="#EAF3FB" fill-opacity="0.7"/></marker>
+</defs>
+
+<rect x="0" y="0" width="640" height="360" fill="#0D3B66"/>
+<rect x="0" y="0" width="640" height="360" fill="url(#mn)"/>
+<rect x="0" y="0" width="640" height="360" fill="url(#mj)"/>
+
+<g font-family="IBM Plex Mono, SFMono-Regular, Consolas, monospace" letter-spacing="0.06em" fill="#EAF3FB">
+
+<!-- title strip -->
+<rect x="16" y="16" width="608" height="24" fill="#0D3B66" stroke="#EAF3FB" stroke-opacity="0.6" stroke-width="1"/>
+<text x="26" y="32" font-size="10">PN-01 · DISPATCH ENGINE SIMULATOR · SCHEMATIC OVERVIEW</text>
+
+<!-- REST API controllers -->
+<rect x="16" y="100" width="130" height="56" fill="#0D3B66" stroke="#EAF3FB" stroke-opacity="0.6" stroke-width="1"/>
+<text x="26" y="122" font-size="10">REST API</text>
+<text x="26" y="138" font-size="9" fill-opacity="0.7">CONTROLLERS</text>
+
+<!-- Dispatch engine (key path) -->
+<rect x="196" y="84" width="170" height="88" fill="#0D3B66" stroke="#9FDBFF" stroke-width="1"/>
+<text x="208" y="108" font-size="10">DISPATCH ENGINE</text>
+<text x="208" y="124" font-size="9" fill-opacity="0.7">find · score · assign</text>
+<text x="208" y="138" font-size="9" fill-opacity="0.7">retry · timeout</text>
+
+<!-- Proximity scorer -->
+<rect x="196" y="200" width="170" height="44" fill="#0D3B66" stroke="#EAF3FB" stroke-opacity="0.6" stroke-width="1"/>
+<text x="208" y="220" font-size="10">PROXIMITY SCORER</text>
+<text x="208" y="234" font-size="9" fill-opacity="0.7">0.6 / 0.25 / 0.15</text>
+
+<!-- Redis GEO -->
+<rect x="412" y="84" width="212" height="44" fill="#0D3B66" stroke="#9FDBFF" stroke-width="1"/>
+<text x="424" y="104" font-size="10">REDIS GEO SET</text>
+<text x="424" y="118" font-size="9" fill-opacity="0.7">hot path · GEORADIUS</text>
+
+<!-- PostGIS -->
+<rect x="412" y="140" width="212" height="44" fill="#0D3B66" stroke="#EAF3FB" stroke-opacity="0.6" stroke-width="1"/>
+<text x="424" y="160" font-size="10">POSTGIS</text>
+<text x="424" y="174" font-size="9" fill-opacity="0.7">fallback · ST_DWithin</text>
+
+<!-- Redis ZSET queue -->
+<rect x="412" y="196" width="212" height="44" fill="#0D3B66" stroke="#EAF3FB" stroke-opacity="0.6" stroke-width="1"/>
+<text x="424" y="216" font-size="10">REDIS ZSET QUEUE</text>
+<text x="424" y="230" font-size="9" fill-opacity="0.7">pending · retry backoff</text>
+
+<!-- Kafka -->
+<rect x="412" y="252" width="212" height="44" fill="#0D3B66" stroke="#EAF3FB" stroke-opacity="0.6" stroke-width="1"/>
+<text x="424" y="272" font-size="10">KAFKA</text>
+<text x="424" y="286" font-size="9" fill-opacity="0.7">dispatch-events topic</text>
+
+<!-- arrows -->
+<path d="M146 128 H196" fill="none" stroke="#9FDBFF" stroke-width="1" marker-end="url(#ah)"/>
+<path d="M281 172 V200" fill="none" stroke="#EAF3FB" stroke-opacity="0.7" stroke-width="1" marker-end="url(#am)"/>
+<path d="M366 106 H412" fill="none" stroke="#9FDBFF" stroke-width="1" marker-end="url(#ah)"/>
+<path d="M518 128 V140" fill="none" stroke="#EAF3FB" stroke-opacity="0.6" stroke-width="1" stroke-dasharray="3 3" marker-end="url(#am)"/>
+<path d="M366 150 H390 V218 H412" fill="none" stroke="#EAF3FB" stroke-opacity="0.6" stroke-width="1" marker-end="url(#am)"/>
+<path d="M366 222 H380 V274 H412" fill="none" stroke="#EAF3FB" stroke-opacity="0.6" stroke-width="1" marker-end="url(#am)"/>
+
+<!-- readouts -->
+<rect x="16" y="310" width="192" height="34" fill="#0D3B66" stroke="#EAF3FB" stroke-opacity="0.6" stroke-width="1"/>
+<text x="26" y="331" font-size="11" fill="#9FDBFF">~180MS <tspan font-size="9" fill="#EAF3FB" fill-opacity="0.7">P95 DISPATCH</tspan></text>
+
+<rect x="224" y="310" width="192" height="34" fill="#0D3B66" stroke="#EAF3FB" stroke-opacity="0.6" stroke-width="1"/>
+<text x="234" y="331" font-size="11" fill="#9FDBFF">92% <tspan font-size="9" fill="#EAF3FB" fill-opacity="0.7">DISPATCH SUCCESS</tspan></text>
+
+<rect x="432" y="310" width="192" height="34" fill="#0D3B66" stroke="#EAF3FB" stroke-opacity="0.6" stroke-width="1"/>
+<text x="442" y="331" font-size="11" fill="#9FDBFF">5K <tspan font-size="9" fill="#EAF3FB" fill-opacity="0.7">REQUEST LOAD TEST</tspan></text>
+</g>
+</svg>

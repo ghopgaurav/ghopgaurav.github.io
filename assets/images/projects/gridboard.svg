@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" font-family="IBM Plex Mono, SFMono-Regular, Consolas, monospace" letter-spacing="0.06em">
+<title>PN-06 gridboard system schematic</title>
+<desc>Feeder simulator feeds a bounded BackpressureBuffer and an unbounded NaiveQueue, drained by a slow consumer in measure.ts, rendered by renderSample and demo/site. Readouts: 4/4 bounded faults, 0/4 unbounded faults, 18,001 unbounded backlog.</desc>
+<defs>
+<pattern id="minor" width="16" height="16" patternUnits="userSpaceOnUse">
+<path d="M16 0H0V16" fill="none" stroke="#EAF3FB" stroke-opacity="0.05" stroke-width="1"/>
+</pattern>
+<pattern id="major" width="80" height="80" patternUnits="userSpaceOnUse">
+<path d="M80 0H0V80" fill="none" stroke="#EAF3FB" stroke-opacity="0.09" stroke-width="1"/>
+</pattern>
+<marker id="arw" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+<path d="M0 0L8 4L0 8z" fill="#EAF3FB" fill-opacity="0.8"/>
+</marker>
+<marker id="arwA" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+<path d="M0 0L8 4L0 8z" fill="#9FDBFF"/>
+</marker>
+</defs>
+
+<rect x="0" y="0" width="640" height="360" fill="#0D3B66"/>
+<rect x="0" y="0" width="640" height="360" fill="url(#minor)"/>
+<rect x="0" y="0" width="640" height="360" fill="url(#major)"/>
+
+<rect x="16" y="16" width="608" height="26" fill="#0D3B66" stroke="#EAF3FB" stroke-opacity="0.6" stroke-width="1"/>
+<text x="28" y="33" font-size="10" fill="#EAF3FB">PN-06 · GRIDBOARD · BACKPRESSURE-AWARE TELEMETRY BUFFER</text>
+
+<!-- sim.ts -->
+<rect x="32" y="150" width="112" height="56" fill="#0D3B66" stroke="#EAF3FB" stroke-opacity="0.6" stroke-width="1"/>
+<text x="42" y="172" font-size="10" fill="#EAF3FB">SIM.TS</text>
+<text x="42" y="188" font-size="9" fill="#EAF3FB" fill-opacity="0.7">feeder + faults</text>
+
+<!-- BackpressureBuffer (key path) -->
+<rect x="184" y="80" width="136" height="56" fill="#0D3B66" stroke="#9FDBFF" stroke-width="1"/>
+<text x="194" y="102" font-size="10" fill="#9FDBFF">BACKPRESSUREBUFFER</text>
+<text x="194" y="118" font-size="9" fill="#EAF3FB" fill-opacity="0.7">bounded · decimate</text>
+<text x="184" y="70" font-size="8" fill="#EAF3FB" fill-opacity="0.7">KEEP NEWEST + ENDPOINTS</text>
+
+<!-- NaiveQueue -->
+<rect x="184" y="224" width="136" height="56" fill="#0D3B66" stroke="#EAF3FB" stroke-opacity="0.6" stroke-width="1"/>
+<text x="194" y="246" font-size="10" fill="#EAF3FB">NAIVEQUEUE</text>
+<text x="194" y="262" font-size="9" fill="#EAF3FB" fill-opacity="0.7">unbounded baseline</text>
+
+<!-- measure.ts -->
+<rect x="352" y="150" width="112" height="56" fill="#0D3B66" stroke="#EAF3FB" stroke-opacity="0.6" stroke-width="1"/>
+<text x="362" y="172" font-size="10" fill="#EAF3FB">MEASURE.TS</text>
+<text x="362" y="188" font-size="9" fill="#EAF3FB" fill-opacity="0.7">slow consumer</text>
+
+<!-- renderSample -->
+<rect x="504" y="150" width="104" height="56" fill="#0D3B66" stroke="#EAF3FB" stroke-opacity="0.6" stroke-width="1"/>
+<text x="514" y="172" font-size="10" fill="#EAF3FB">RENDERSAMPLE</text>
+<text x="514" y="188" font-size="9" fill="#EAF3FB" fill-opacity="0.7">LIVE / STALE</text>
+
+<!-- demo and site -->
+<rect x="504" y="224" width="104" height="56" fill="#0D3B66" stroke="#EAF3FB" stroke-opacity="0.6" stroke-width="1"/>
+<text x="514" y="246" font-size="10" fill="#EAF3FB">DEMO.TS + SITE/</text>
+<text x="514" y="262" font-size="9" fill="#EAF3FB" fill-opacity="0.7">report · browser</text>
+
+<!-- arrows -->
+<path d="M144 178 H164 V108 H184" fill="none" stroke="#9FDBFF" stroke-width="1" marker-end="url(#arwA)"/>
+<path d="M144 178 H164 V252 H184" fill="none" stroke="#EAF3FB" stroke-opacity="0.6" stroke-width="1" marker-end="url(#arw)"/>
+<path d="M320 108 H336 V178 H352" fill="none" stroke="#9FDBFF" stroke-width="1" marker-end="url(#arwA)"/>
+<path d="M320 252 H336 V178 H352" fill="none" stroke="#EAF3FB" stroke-opacity="0.6" stroke-width="1" marker-end="url(#arw)"/>
+<line x1="464" y1="178" x2="504" y2="178" stroke="#EAF3FB" stroke-opacity="0.6" stroke-width="1" marker-end="url(#arw)"/>
+<line x1="556" y1="206" x2="556" y2="224" stroke="#EAF3FB" stroke-opacity="0.6" stroke-width="1" marker-end="url(#arw)"/>
+
+<!-- readouts -->
+<rect x="32" y="292" width="160" height="44" fill="#0D3B66" stroke="#9FDBFF" stroke-width="1"/>
+<text x="42" y="310" font-size="16" fill="#9FDBFF">4/4</text>
+<text x="42" y="326" font-size="9" fill="#EAF3FB" fill-opacity="0.7">BOUNDED FAULTS FOUND</text>
+
+<rect x="232" y="292" width="160" height="44" fill="#0D3B66" stroke="#EAF3FB" stroke-opacity="0.6" stroke-width="1"/>
+<text x="242" y="310" font-size="16" fill="#EAF3FB">0/4</text>
+<text x="242" y="326" font-size="9" fill="#EAF3FB" fill-opacity="0.7">UNBOUNDED FAULTS FOUND</text>
+
+<rect x="432" y="292" width="176" height="44" fill="#0D3B66" stroke="#EAF3FB" stroke-opacity="0.6" stroke-width="1"/>
+<text x="442" y="310" font-size="16" fill="#EAF3FB">18,001</text>
+<text x="442" y="326" font-size="9" fill="#EAF3FB" fill-opacity="0.7">UNBOUNDED BACKLOG</text>
+</svg>

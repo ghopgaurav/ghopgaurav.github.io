@@ -1,0 +1,38 @@
+{
+  "paragraphs": [
+    "I'm a backend engineer on the founding team at OurFreedom.ai in New York. There I lead Carla, a LangGraph tool-calling agent serving about 1,000 requests a day, and I own the AWS production backend.",
+    "Before that I built an asynchronous order queue on AWS SQS and introduced PgBouncer pooling as a founding engineer at Duende Ingenious. At eQ Technologic I wrote idempotent Kafka consumers and Spring Boot microservices that kept PLM and ERP systems in sync.",
+    "I measure what I ship. I've cut hallucination rates from 16% to under 5% with a nightly 150-case eval, and cut silent order failures with retries and a dead letter queue.",
+    "Outside work I write storage and systems code from scratch, including an LSM-tree key/value store in C++ and fused attention kernels in Triton and CUDA."
+  ],
+  "highlights": [
+    {
+      "label": "Focus",
+      "value": "Backend, distributed systems, AI agents"
+    },
+    {
+      "label": "Current",
+      "value": "Founding Team, OurFreedom.ai"
+    },
+    {
+      "label": "Base",
+      "value": "New York, NY"
+    },
+    {
+      "label": "Degree",
+      "value": "MS Computer Engineering, NYU"
+    },
+    {
+      "label": "Languages",
+      "value": "Java, Python, TypeScript, C++, SQL"
+    },
+    {
+      "label": "Core stack",
+      "value": "Spring Boot, Kafka, PostgreSQL, AWS"
+    },
+    {
+      "label": "Awards",
+      "value": "Runner-Up AWS GenAI Hackathon 2025, Finalist Google DeepMind Hackathon 2025"
+    }
+  ]
+}
